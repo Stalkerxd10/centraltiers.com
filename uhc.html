@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Tierlist</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>UHC Central Tierlist</h1>
+        <input type="text" id="searchBox" placeholder="Search names...">
+    </header>
+
+    <nav>
+        <button onclick="location.href='nethpot.html';">Nethpot</button>
+        <button onclick="location.href='sword.html';">Sword</button>
+        <button onclick="location.href='uhc.html';">UHC</button>
+        <button onclick="location.href='smp.html';">SMP</button>
+        <button onclick="location.href='crystal.html';">Crystal</button>
+        <button onclick="location.href='diamondpot.html';">DiamondPot</button>
+        <button onclick="location.href='axe.html';">Axe</button>
+    </nav>
+
+    <main>
+        <div class="tier-column" id="tier1"><h2>Tier 1</h2><div class="list"></div></div>
+        <div class="tier-column" id="tier2"><h2>Tier 2</h2><div class="list"></div></div>
+        <div class="tier-column" id="tier3"><h2>Tier 3</h2><div class="list"></div></div>
+        <div class="tier-column" id="tier4"><h2>Tier 4</h2><div class="list"></div></div>
+        <div class="tier-column" id="tier5"><h2>Tier 5</h2><div class="list"></div></div>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const players = [
+                { name: "", region: "Europe", rank: "Low" },
+                { name: "", region: "Europe", rank: "Low" },
+                // More players
+            ];
+
+                        // Loop through each player and append them to the correct tier list
+                        players.forEach(player => {
+                const tierList = document.querySelector(`#${player.tier} .list`); // Dynamic selector based on player's tier
+                const div = document.createElement('div');
+                div.className = 'item';
+                div.innerHTML = `<span class="name">${player.name}</span>
+                                 <div class="tooltip">Region: ${player.region}, Rank: ${player.rank}</div>`;
+                tierList.appendChild(div);
+            });
+        });
+        </script>
+</body>
+</html>
+        
