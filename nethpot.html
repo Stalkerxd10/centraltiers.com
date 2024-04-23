@@ -31,37 +31,43 @@
         <div class="tier-column" id="tier5"><h2>Tier 5</h2><div class="list"></div></div>
     </main>
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const players = [
-                { name: "PoggerDavid", region: "Europe", rank: "High", tier: "tier3" },
-                { name: "ruzylia", region: "Europe", rank: "High", tier: "tier2" },
-                { name: "as_pect324", region: "Asia", rank: "Low", tier: "tier3" },
-                { name: "St4lk33R_", region: "Asia", rank: "Low", tier: "tier3" },
-                { name: "Theprodasw", region: "Europe", rank: "Low", tier: "tier3" },
-                { name: "Kosmex", region: "Asia", rank: "Low", tier: "tier3" },
-                { name: "IlyStorm", region: "NorthAmerica", rank: "Low", tier: "tier3" },
-                { name: "HabibiRoni", region: "Asia", rank: "Low", tier: "tier3" },
-                { name: "ItzsInceLL", region: "Asia", rank: "Low", tier: "tier3" },
-                { name: "VietLeo", region: "Asia", rank: "Low", tier: "tier3" },
-                { name: "Shadowh11", region: "Asia", rank: "Low", tier: "tier3"},
-                { name: "Picaso0" , region: "Asia", rank: "Low", tier: "tier3"},
-                { name: "ImaCreep_" , region: "Asia", rank: "Low", tier: "tier3"},
-                { name: "OJASXRAM" , region: "Asia", rank: "Low", tier: "tier3"},
-                
-                
-                // More players can be added here
-            ];
-        
-            // Loop through each player and append them to the correct tier list
-            players.forEach(player => {
-                const tierList = document.querySelector(`#${player.tier} .list`); // Dynamic selector based on player's tier
-                const div = document.createElement('div');
-                div.className = 'item';
-                div.innerHTML = `<span class="name">${player.name}</span>
-                                 <div class="tooltip">Region: ${player.region}, Rank: ${player.rank}</div>`;
-                tierList.appendChild(div);
-            });
-        });
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("DOM fully loaded and parsed");
+
+    const players = [
+        { name: "PoggerDavid", region: "Europe", rank: "High", tier: "tier3" },
+        { name: "as_pect324", region: "Asia", rank: "Low", tier: "tier3" },
+        { name: "ruzylia", region: "Europe", rank: "High", tier: "tier2" },
+        { name: "as_pect324", region: "Asia", rank: "Low", tier: "tier3" },
+        { name: "St4lk33R_", region: "Asia", rank: "Low", tier: "tier3" },
+        { name: "Theprodasw", region: "Europe", rank: "Low", tier: "tier3" },
+        { name: "Kosmex", region: "Asia", rank: "Low", tier: "tier3" },
+        { name: "IlyStorm", region: "NorthAmerica", rank: "Low", tier: "tier3" },
+        { name: "HabibiRoni", region: "Asia", rank: "Low", tier: "tier3" },
+        { name: "ItzsInceLL", region: "Asia", rank: "Low", tier: "tier3" },
+        { name: "VietLeo", region: "Asia", rank: "Low", tier: "tier3" },
+        { name: "Shadowh11", region: "Asia", rank: "Low", tier: "tier3"},
+        { name: "Picaso0" , region: "Asia", rank: "Low", tier: "tier3"},
+        { name: "ImaCreep_" , region: "Asia", rank: "Low", tier: "tier3"},
+        { name: "OJASXRAM" , region: "Asia", rank: "Low", tier: "tier3"},
+        // Continue listing your players
+    ];
+
+    players.forEach(player => {
+        const tierList = document.querySelector(`#${player.tier} .list`);
+        if (tierList) {
+            const div = document.createElement('div');
+            div.className = 'item';
+            div.classList.add(player.rank === 'High' ? 'high-rank' : 'low-rank');
+            div.innerHTML = `<span class="name">${player.name}</span>
+                             <div class="tooltip">Region: ${player.region}, Rank: ${player.rank}</div>`;
+            tierList.appendChild(div);
+        } else {
+            console.log(`Tier list not found for tier: ${player.tier}`);
+        }
+    });
+});
+
         </script>
 </body>
 </html>

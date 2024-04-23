@@ -31,26 +31,32 @@
     </main>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            console.log("DOM fully loaded and parsed");
+        
             const players = [
-                { name: "GW_Tamim19", region: "Asia", rank: "Low", tier: "tier4" },
+            { name: "GW_Tamim19", region: "Asia", rank: "Low", tier: "tier4" },
                 { name: "FXJOD", region: "Asia", rank: "Low", tier: "tier5"},
                 { name: "Blazryn", region: "Asia", rank: "Low", tier: "tier3"},
                 { name: "xNemsis", region: "Asia", rank: "Low", tier: "tier3"},
-
-                // More players
+                // Continue listing your players
             ];
-
-                        // Loop through each player and append them to the correct tier list
-                        players.forEach(player => {
-                const tierList = document.querySelector(`#${player.tier} .list`); // Dynamic selector based on player's tier
-                const div = document.createElement('div');
-                div.className = 'item';
-                div.innerHTML = `<span class="name">${player.name}</span>
-                                 <div class="tooltip">Region: ${player.region}, Rank: ${player.rank}</div>`;
-                tierList.appendChild(div);
+        
+            players.forEach(player => {
+                const tierList = document.querySelector(`#${player.tier} .list`);
+                if (tierList) {
+                    const div = document.createElement('div');
+                    div.className = 'item';
+                    div.classList.add(player.rank === 'High' ? 'high-rank' : 'low-rank');
+                    div.innerHTML = `<span class="name">${player.name}</span>
+                                     <div class="tooltip">Region: ${player.region}, Rank: ${player.rank}</div>`;
+                    tierList.appendChild(div);
+                } else {
+                    console.log(`Tier list not found for tier: ${player.tier}`);
+                }
             });
         });
         </script>
+        
 </body>
 </html>
 

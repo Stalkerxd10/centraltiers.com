@@ -144,3 +144,10 @@ main {
     cursor: pointer;
 }
 
+.high-rank {
+    background-color: rgb(0, 0, 139); /* Dark blue for high rank */
+}
+
+.low-rank {
+    background-color: rgb(0, 0, 255); /* Blue for low rank */
+}
