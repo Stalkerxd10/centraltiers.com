@@ -71,7 +71,7 @@ main {
 }
 
 .list {
-    background-color: rgb(138, 138, 138);
+    background-color: rgb(34, 34, 34);
     flex-grow: 1;
     margin-top: 5px;
     border-radius: 10px;
@@ -103,7 +103,7 @@ main {
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
-    position: absolute;
+    position:absolute;
     z-index: 1;
     top: 100%;
     left: 50%;
@@ -111,7 +111,6 @@ main {
     width: 120px;
 }
 
-/* Modal Styles */
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
@@ -125,11 +124,11 @@ main {
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: #888; /* Gray background */
     margin: 15% auto; /* 15% from the top and centered */
     padding: 20px;
-    border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    border: 1px solid #444;
+    width: 50%; /* Could be more or less, depending on screen size */
 }
 
 .close {
@@ -144,3 +143,4 @@ main {
     text-decoration: none;
     cursor: pointer;
 }
+
