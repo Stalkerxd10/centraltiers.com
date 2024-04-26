@@ -151,3 +151,7 @@ main {
 .low-rank {
     background-color: rgb(143, 143, 143); /* Blue for low rank */
 }
+
+html {
+    scroll-behavior: smooth;
+}
