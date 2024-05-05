@@ -1,6 +1,6 @@
 /* homepage.css - Styles specifically for the homepage */
 body {
-    background-color: rgb(34, 34, 34);
+    background-color: rgb(51, 51, 51);
 }
 
 header {
@@ -22,7 +22,7 @@ main {
 .inviter-list {
     width: 80%;
     max-width: 600px;
-    background-color: rgb(109, 109, 109);
+    background-color: rgb(29, 28, 68);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -30,7 +30,7 @@ main {
 }
 
 .inviter-item {
-    background-color: rgb(182, 182, 182);
+    background-color: rgb(114, 114, 114);
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 5px;
