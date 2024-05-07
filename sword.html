@@ -23,18 +23,18 @@
     </nav>
 
     <main>
-        <div class="tier-column" id="tier1"><h2>Tier 1 🥇</h2><div class="list"></div></div>
-        <div class="tier-column" id="tier2"><h2>Tier 2 🥈</h2><div class="list"></div></div>
-        <div class="tier-column" id="tier3"><h2>Tier 3 🥉</h2><div class="list"></div></div>
-        <div class="tier-column" id="tier4"><h2>Tier 4 🏅</h2><div class="list"></div></div>
-        <div class="tier-column" id="tier5"><h2>Tier 5 🎖️</h2><div class="list"></div></div>
+        <div class="tier-column" id="tier1"><h2>Tier 1 </h2><div class="list"></div></div>
+        <div class="tier-column" id="tier2"><h2>Tier 2 </h2><div class="list"></div></div>
+        <div class="tier-column" id="tier3"><h2>Tier 3 </h2><div class="list"></div></div>
+        <div class="tier-column" id="tier4"><h2>Tier 4 </h2><div class="list"></div></div>
+        <div class="tier-column" id="tier5"><h2>Tier 5 </h2><div class="list"></div></div>
     </main>
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             console.log("DOM fully loaded and parsed");
         
             const players = [
-            { name: "GW_Tamim19", region: "Asia", rank: "Low", tier: "tier4" },
+                { name: "GW_Tamim19", region: "Asia", rank: "Low", tier: "tier4" },
                 { name: "FXJOD", region: "Asia", rank: "Low", tier: "tier5"},
                 { name: "Blazryn", region: "Asia", rank: "Low", tier: "tier3"},
                 { name: "xNemsis", region: "Asia", rank: "Low", tier: "tier3"},
@@ -69,37 +69,43 @@
                 { name: "therealkirate", region: "Asia", rank: "High", tier: "tier4"},
                 { name: "rvte", region: "Asia", rank: "Low", tier: "tier3"},
                 { name: "kimhonn", region: "Asia", rank: "Low", tier: "tier3"},
-                { name: "", region: "Asia", rank: "High", tier: "tier4"},
-                { name: "", region: "", rank: "", tier:""},
-                { name: "", region: "", rank: "", tier:""},
-                { name: "", region: "", rank: "", tier:""},
-                { name: "", region: "", rank: "", tier:""},
-                { name: "", region: "", rank: "", tier:""},
-                { name: "", region: "", rank: "", tier:""},
-                { name: "", region: "", rank: "", tier:""},
-                { name: "", region: "", rank: "", tier:""},
-                { name: "", region: "", rank: "", tier:""},
+                { name: "Featheruser100", region: "Asia", rank: "Low", tier: "tier3"},
+                { name: "TTHxZack", region: "Asia", rank: "Low", tier: "tier3"},
+                { name: "ming13285", region: "Asia", rank: "Low", tier: "tier5"},
+                { name: "_endr1t", region: "Asia", rank: "High", tier: "tier4"},
+                { name: "FeatherUser100", region: "Asia", rank: "Low", tier: "tier3"},
+                { name: "Likeuwu", region: "Asia", rank: "Low", tier: "tier4"},
+                { name: "shinlos", region: "Asia", rank: "Low", tier: "tier4"},
+                { name: "Lt5WeakNethpot", region: "Asia", rank: "High", tier: "tier4"},
+                { name: "869k", region: "Asia", rank: "High", tier: "tier4"},
+                { name: "OoogaBoogaRisky", region: "Asia", rank: "Low", tier: "tier3"},
                 { name: "", region: "", rank: "", tier:""},
                 { name: "", region: "", rank: "", tier:""},
                 { name: "", region: "", rank: "", tier:""},
                 // Continue listing your players
-            ];
-        
-            players.forEach(player => {
-                const tierList = document.querySelector(`#${player.tier} .list`);
-                if (tierList) {
-                    const div = document.createElement('div');
-                    div.className = 'item';
-                    div.classList.add(player.rank === 'High' ? 'high-rank' : 'low-rank');
-                    div.innerHTML = `<span class="name">${player.name}</span>
-                                     <div class="tooltip">Region: ${player.region}, Rank: ${player.rank}</div>`;
-                    tierList.appendChild(div);
-                } else {
-                    console.log(`Tier list not found for tier: ${player.tier}`);
-                }
-            });
-        });
-        </script>
+                ];
+
+    players.forEach(player => {
+        const tierList = document.querySelector(`#${player.tier} .list`);
+        if (tierList) {
+            const div = document.createElement('div');
+            div.className = 'item';
+            div.classList.add(player.rank === 'High' ? 'high-rank' : 'low-rank');
+            div.innerHTML = `<span class="name">${player.name}</span>
+                             <div class="tooltip">Region: ${player.region}, Rank: ${player.rank}</div>`;
+
+            // Check the rank and prepend or append accordingly
+            if (player.rank === 'High') {
+                tierList.prepend(div); // This will insert high-ranked players at the top of the list
+            } else {
+                tierList.appendChild(div); // This will add low-ranked players at the bottom of the list
+            }
+        } else {
+            console.log(`Tier list not found for tier: ${player.tier}`);
+        }
+    });
+});
+</script>
         
 </body>
 </html>

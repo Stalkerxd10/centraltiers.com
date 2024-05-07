@@ -3,9 +3,10 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
-    background-color: rgb(51, 51, 51);
+    background-color: gray;
+    background-image: linear-gradient(to right, rgb(255, 255, 255), #ffffff, #000000);
     height: 100%;
-    overflow: hidden; /* Prevent body scrolling */
+    overflow: auto; /* Allows scrolling on the whole page */
 }
 
 header {
@@ -13,12 +14,14 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
-    background-color: rgb(88, 88, 88);
+    background-color: rgb(37, 37, 37);
+    background-image: linear-gradient(to right, #000329, #000000, #696969);
+
 }
 
 h1 {
     font-size: 24px;
-    color: white;
+    color: rgb(255, 255, 255);
     font-weight: bold;
 }
 
@@ -38,12 +41,13 @@ button {
     margin: 0 5px;
     border: none;
     border-radius: 5px;
-    background-color: rgb(124, 124, 124);
+    background-color: rgb(22, 180, 185);
+    background: linear-gradient(to right, #818181, #c0c0c0);
     cursor: pointer;
 }
 
 button:hover {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
 }
 
 /* Specific to Main Content Area */
@@ -51,41 +55,48 @@ main {
     display: flex;
     justify-content: space-between;
     padding: 0 10px;
-    overflow-y: scroll; /* Scroll vertically for whole main content */
-    height: calc(100vh - 140px); /* Adjust height calculation if needed */
 }
 
 .tier-column {
     flex: 1;
     margin: 0 5px;
-    background-color: rgb(109, 109, 109);
+    background-color: rgb(0, 0, 0);
+    background: linear-gradient(to right, #272727, #929292);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    height: 100%; /* Ensure columns are full height */
 }
 
 .tier-column h2 {
     text-align: center;
-    color: white;
+    color: rgb(255, 255, 255);
 }
 
 .list {
-    background-color: rgb(34, 34, 34);
-    flex-grow: 1;
+    background-color: #114385;
+    background: linear-gradient(to top, #1f1f1f, rgb(128, 128, 128), #181818);
+    color: white; /* Ensuring text is readable against a dark background */
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
     margin-top: 5px;
     border-radius: 10px;
     padding: 10px;
+    flex: 1;
+    min-height: 500px; /* Minimum height for visual consistency */
 }
+
 
 .item {
     padding: 8px;
     margin: 5px 0;
-    background-color: rgb(182, 182, 182);
+    background-color: rgb(0, 0, 0);
     border-radius: 5px;
     display: flex;
     justify-content: space-between;
-    position: relative; /* Needed for tooltip positioning */
+    position: relative;
 }
 
 .item span {
@@ -93,7 +104,7 @@ main {
 }
 
 .item:hover .tooltip {
-    visibility: visible; /* Show tooltip on hover */
+    visibility: visible;
 }
 
 .tooltip {
@@ -107,28 +118,28 @@ main {
     z-index: 1;
     top: 100%;
     left: 50%;
-    margin-left: -60px; /* Adjust tooltip position */
+    margin-left: -60px;
     width: 120px;
 }
 
 .modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    display: none;
+    position: fixed;
+    z-index: 1;
     left: 0;
     top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
 }
 
 .modal-content {
-    background-color: #888; /* Gray background */
-    margin: 15% auto; /* 15% from the top and centered */
+    background-color: #888;
+    margin: 15% auto;
     padding: 20px;
     border: 1px solid #444;
-    width: 50%; /* Could be more or less, depending on screen size */
+    width: 50%;
 }
 
 .close {
@@ -139,19 +150,45 @@ main {
 }
 
 .close:hover, .close:focus {
-    color: black;
+    color: rgb(0, 50, 73);
     text-decoration: none;
     cursor: pointer;
 }
 
 .high-rank {
-    background-color: rgb(255, 255, 255); /* Dark blue for high rank */
+    background-color: #2331c9;
+    background-image: linear-gradient(to right, #0003cc, black);
+
 }
 
 .low-rank {
-    background-color: rgb(143, 143, 143); /* Blue for low rank */
+    background-color: #3498db;
+    background-image: linear-gradient(to right, #2c8fc9, black);
 }
 
 html {
     scroll-behavior: smooth;
+}
+
+.item .name::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+    vertical-align: middle;
+    background-color: transparent; /* Default to transparent */
+}
+
+.item.asia .name::before {
+    background-color: #800080; /* Purple for Asia */
+}
+
+.item.europe .name::before {
+    background-color: #008000; /* Green for Europe */
+}
+
+.item.north-america .name::before {
+    background-color: #FF0000; /* Red for North America */
 }
