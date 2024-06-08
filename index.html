@@ -1,39 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Home - Central Tierlist</title>
-        <link rel="stylesheet" href="styles.css">  <!-- Main stylesheet -->
-        <link rel="stylesheet" href="homepage.css">  <!-- Homepage-specific stylesheet -->
-    </head>
-    
-<body class="home-page">
-    <header>
-        <h1>Welcome to Central Tierlist</h1>
-    </header>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Central Tiers</title>
+    <link rel="stylesheet" href="homepage.css">
+</head>
+<body>
+    <div class="title">Central Tiers</div>
     <nav>
-        <button onclick="location.href='nethpot.html';">Nethpot</button>
-        <button onclick="location.href='sword.html';">Sword</button>
-        <button onclick="location.href='uhc.html';">UHC</button>
-        <button onclick="location.href='smp.html';">SMP</button>
-        <button onclick="location.href='crystal.html';">Crystal</button>
-        <button onclick="location.href='diamondpot.html';">DiamondPot</button>
-        <button onclick="location.href='axe.html';">Axe</button>
-    </nav>
-    <main>
-        <h2>Top 3 Server Inviters</h2>
-        <div class="inviter-list">
-            <div class="inviter-item">
-                <span class="inviter-name">st4lkieeeee#0</span> - <span class="invites">318 Invites</span>
-            </div>
-            <div class="inviter-item">
-                <span class="inviter-name">itzsakuno#0</span> - <span class="invites">28 Invites</span>
-            </div>
-            <div class="inviter-item">
-                <span class="inviter-name">fxjod</span> - <span class="invites">20 Invites</span>
-            </div>
+        <div class="button-container">
+            <button onclick="location.href='nethpot.html'">NetheritePot</button>
+            <button onclick="location.href='smp.html'">SMP</button>
+            <button onclick="location.href='uhc.html'">UHC</button>
+            <button onclick="location.href='crystal.html'">Crystal</button>
         </div>
-    </main>
+        <div class="info-list">
+            <div><div class="color-box dark-blue"></div>Dark blue - High</div>
+            <div><div class="color-box light-blue"></div>Light blue - Low</div>
+            <div><div class="color-box red"></div>NA - Red</div>
+            <div><div class="color-box green"></div>EU - Green</div>
+            <div><div class="color-box purple"></div>AS - Purple</div>
+        </div>
+        <div class="button-container">
+            <button onclick="location.href='diamondpot.html'">DiamondPot</button>
+            <button onclick="location.href='axe.html'">Axe</button>
+            <button onclick="location.href='sword.html'">Sword</button>
+        </div>
+    </nav>
+    <script src="script.js"></script>
 </body>
 </html>

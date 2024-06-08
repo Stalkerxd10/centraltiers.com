@@ -3,188 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Central Tierlist</title>
+    <title>Central Tiers - NetheritePot</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Crystal Central Tierlist</h1>
-        <input type="text" id="searchBox" placeholder="Search names...">
+        <div class="title">Crystal Tier List</div>
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search Player's names...">
+        </div>
     </header>
-
     <nav>
-        <button onclick="location.href='nethpot.html';">Nethpot</button>
-        <button onclick="location.href='sword.html';">Sword</button>
-        <button onclick="location.href='uhc.html';">UHC</button>
-        <button onclick="location.href='smp.html';">SMP</button>
-        <button onclick="location.href='crystal.html';">Crystal</button>
-        <button onclick="location.href='diamondpot.html';">DiamondPot</button>
-        <button onclick="location.href='axe.html';">Axe</button>
+        <button onclick="location.href='index.html'">Back to Main</button>
+        <button onclick="location.href='nethpot.html'">NetheritePot</button>
+        <button onclick="location.href='smp.html'">SMP</button>
+        <button onclick="location.href='uhc.html'">UHC</button>
+        <button onclick="location.href='crystal.html'">Crystal</button>
+        <button onclick="location.href='diamondpot.html'">DiamondPot</button>
+        <button onclick="location.href='axe.html'">Axe</button>
+        <button onclick="location.href='sword.html'">Sword</button>
     </nav>
-
     <main>
-        <div class="tier-column" id="tier1"><h2>TIER 1 </h2><div class="list"></div></div>
-        <div class="tier-column" id="tier2"><h2>TIER 2 </h2><div class="list"></div></div>
-        <div class="tier-column" id="tier3"><h2>TIER 3 </h2><div class="list"></div></div>
-        <div class="tier-column" id="tier4"><h2>TIER 4 </h2><div class="list"></div></div>
-        <div class="tier-column" id="tier5"><h2>TIER 5 </h2><div class="list"></div></div>
+        <div class="column" id="tier1">
+            <div class="column-title">TIER 1</div>
+            <div class="players"></div>
+        </div>
+        <div class="column" id="tier2">
+            <div class="column-title">TIER 2</div>
+            <div class="players"></div>
+        </div>
+        <div class="column" id="tier3">
+            <div class="column-title">TIER 3</div>
+            <div class="players"></div>
+        </div>
+        <div class="column" id="tier4">
+            <div class="column-title">TIER 4</div>
+            <div class="players"></div>
+        </div>
+        <div class="column" id="tier5">
+            <div class="column-title">TIER 5</div>
+            <div class="players"></div>
+        </div>
     </main>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            console.log("DOM fully loaded and parsed");
-        
-            const players = [
-            { name: "Kosmes", region: "Asia", rank: "Low", tier: "tier3" },
-            { name: "DhruvIsHere", region: "Asia", rank: "Low", tier: "tier5"},
-            { name: "Giganegia", region: "Asia", rank: "High", tier: "tier4"},
-            { name: "Clownfish123", region: "Asia", rank: "Low", tier: "tier4"},
-            { name: "1tach1i", region: "Asia", rank: "High", tier: "tier4"},
-            { name: "Lefahne", region: "Asia", rank: "Low", tier: "tier3"},
-            { name: "xNemsis", region: "Asia", rank: "Low", tier: "tier3"},
-            { name: "Shantanu_ZX10R", region: "Asia", rank: "Low", tier: "tier5"},
-            { name: "KaiGotThis", region: "Asia", rank: "High", tier: "tier5"},
-            { name: "Kyslee", region: "Asia", rank: "Low", tier: "tier3"},
-            { name: "Detective_Borgir", region: "Asia", rank: "Low", tier: "tier5"},
-            { name: "MRRonit15767", region: "Asia", rank: "Low", tier: "tier5"},
-            { name: "NotElyst", region: "Asia", rank: "Low", tier: "tier4"},
-            { name: "ASTAxGOD", region: "Asia", rank: "Low", tier: "tier3"},
-            { name: "Loniiu", region: "Europe", rank: "Low", tier: "tier3"},
-            { name: "TradingTea", region: "North America", rank: "High", tier: "tier5"},
-            { name: "Zurri_", region: "Asia", rank: "High", tier: "tier4"},
-            { name: "OJASXRAM", region: "Asia", rank: "Low", tier: "tier4"},
-            { name: "RakIz2010", region: "Asia", rank: "High", tier: "tier4"},
-            { name: "ninja87645", region: "Asia", rank: "High", tier: "tier5"},
-            { name: "Frqncium", region: "Asia", rank: "Low", tier: "tier4"},
-            { name: "ItzPhantomAS", region: "Asia", rank: "Low", tier: "tier3"},
-            { name: "Kronosu", region: "Asia", rank: "High", tier: "tier4"},
-            { name: "definitelyMatrix", region: "Asia", rank: "Low", tier: "tier5"},
-            { name: "ezoboma", region: "Asia", rank: "Low", tier: "tier5"},
-            { name: "FXJOD", region: "Asia", rank: "Low", tier: "tier5"},
-            { name: "myawi", region: "Asia", rank: "Low", tier: "tier3"},
-            { name: "NNYAPPING", region: "Asia", rank: "Low", tier: "tier3"},
-            { name: "Sk11led_", region: "Asia", rank: "Low", tier: "tier3"},
-            { name: "iambooyah", region: "Asia", rank: "Low", tier: "tier4"},
-            { name: "CelestialOnTop", region: "Asia", rank: "Low", tier: "tier3"},
-            { name: "Pure_Cash", region: "Asia", rank: "Low", tier: "tier3"},
-            { name: "Nytelloyde1107", region: "Asia", rank: "High", tier: "tier5"},
-            { name: "Nians69", region: "Asia", rank: "Low", tier: "tier5"},
-            { name: "o7d9e4t1c", region: "Asia", rank: "Low", tier: "tier3"},
-            { name: "IND_SAB", region: "Asia", rank: "Low", tier: "tier4"},
-            { name: "DhruvIsHere", region: "Asia", rank: "High", tier: "tier5"},
-            { name: "zzawg", region: "Asia", rank: "Low", tier: "tier4"},
-            { name: "fakekota", region: "Asia", rank: "High", tier: "tier5"},
-            { name: "Lag_Akumaa", region: "Asia", rank: "Low", tier: "tier4"},
-            { name: "BuffOrange", region: "Asia", rank: "Low", tier: "tier4"},
-            { name: "EboyDELL", region: "Asia", rank: "Low", tier: "tier4"},
-            { name: "Ldqs", region: "Asia", rank: "Low", tier: "tier3"},
-            { name: "Goddeep", region: "Asia", rank: "Low", tier: "tier5"},
-            { name: "JCIEC", region: "Asia", rank: "Low", tier: "tier4"},
-            { name: "Benzo001", region: "Asia", rank: "High", tier: "tier3"},
-            { name: "Rvte", region: "Asia", rank: "High", tier: "tier4"},
-            { name: "vixxerrz", region: "Asia", rank: "High", tier: "tier5"},
-            { name: "ITSS_SPIRIT", region: "Asia", rank: "Low", tier: "tier3"},
-            { name: "rick_editz", region: "Asia", rank: "High", tier: "tier5"},
-            { name: "SheMakeItHappy", region: "Asia", rank: "High", tier: "tier4"},
-            { name: "Aydin_5881", region: "Asia", rank: "High", tier: "tier4"},
-            { name: "rick_editz", region: "Asia", rank: "High", tier: "tier5"},
-            { name: "SheMakeItHappy", region: "Asia", rank: "High", tier: "tier4"},
-            { name: "Aydin_5881", region: "Asia", rank: "High", tier: "tier4"},
-            { name: "DARK_BEAST220", region: "Asia", rank: "High", tier: "tier4"},
-            { name: "xGod_playz", region: "Asia", rank: "Low", tier: "tier5"},
-            { name: "princejolly", region: "Asia", rank: "Low", tier: "tier4"},
-            { name: "iheattaya", region: "Asia", rank: "High", tier: "tier5"},
-            { name: "TheTitanISLOL", region: "Asia", rank: "Low", tier: "tier5"},
-            { name: "tycdd", region: "Asia", rank: "High", tier: "tier4"},
-            { name: "divij9191", region: "Asia", rank: "High", tier: "tier5"},
-            { name: "JianTesterLt3", region: "Asia", rank: "High", tier: "tier5"},
-            { name: "WorstOfAsia", region: "Asia", rank: "High", tier: "tier4"},
-            { name: "OwnerOfCole", region: "Asia", rank: "Low", tier: "tier3"},
-            { name: "ShesHeartless", region: "Asia", rank: "Low", tier: "tier3"},
-            { name: "SayanColdz", region: "Asia", rank: "Low", tier: "tier4"},
-            { name: "Ranmati", region: "Asia", rank: "High", tier: "tier5"},
-            { name: "ChotaBachha", region: "Asia", rank: "Low", tier: "tier4"},
-            { name: "GA47", region: "Asia", rank: "Low", tier: "tier4"},
-            { name: "Paras_XZ", region: "Asia", rank: "High", tier: "tier5"},
-            { name: "feroXUser", region: "Asia", rank: "Low", tier: "tier4"},
-            { name: "lv3ke", region: "Asia", rank: "High", tier: "tier4"},
-            { name: "mollaXUser", region: "Asia", rank: "Low", tier: "tier4"},
-            { name: "frosted", region: "Asia", rank: "Low", tier: "tier4"},
-            { name: "GodKiller25", region: "Asia", rank: "High", tier: "tier5"},
-            { name: "Raftler_XD", region: "Asia", rank: "High", tier: "tier5"},
-            { name: "ShesHeartless", region: "Asia", rank: "Low", tier: "tier3"},
-            { name: "Robo_Play", region: "Asia", rank: "High", tier: "tier5"},
-            { name: "Sengod69", region: "Asia", rank: "Low", tier: "tier5"},
-            { name: "Whitelister", region: "Asia", rank: "High", tier: "tier5"},
-            { name: "NotSkeleXD", region: "Asia", rank: "High", tier: "tier5"},
-            { name: "LIGHTXGAMERSLIFE", region: "Asia", rank: "Low", tier: "tier5"},
-            { name: "OwnerOfCole", region: "Asia", rank: "High", tier: "tier3"},
-            { name: "G4hstly", region: "Asia", rank: "High", tier: "tier4"},
-            { name: "LT1", region: "Asia", rank: "High", tier: "tier4"},
-            { name: "Stxrs", region: "Asia", rank: "Low", tier: "tier4"},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-            { name: "", region: "", rank: "", tier: ""},
-        
-                // Continue listing your players
-                ];
-
-    players.forEach(player => {
-        const tierList = document.querySelector(`#${player.tier} .list`);
-        if (tierList) {
-            const div = document.createElement('div');
-            div.className = 'item';
-            div.classList.add(player.rank === 'High' ? 'high-rank' : 'low-rank');
-            div.innerHTML = `<span class="name">${player.name}</span>
-                             <div class="tooltip">Region: ${player.region}, Rank: ${player.rank}</div>`;
-
-            // Check the rank and prepend or append accordingly
-            if (player.rank === 'High') {
-                tierList.prepend(div); // This will insert high-ranked players at the top of the list
-            } else {
-                tierList.appendChild(div); // This will add low-ranked players at the bottom of the list
-            }
-        } else {
-            console.log(`Tier list not found for tier: ${player.tier}`);
-        }
-    });
-});
-</script>
-        
+    <script src="crystal.js"></script>
 </body>
 </html>

@@ -1,194 +1,165 @@
-/* Basic Layout and Styles */
-body, html {
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
-    background-color: gray;
-    background-image: linear-gradient(to right, rgb(255, 255, 255), #ffffff, #000000);
-    height: 100%;
-    overflow: auto; /* Allows scrolling on the whole page */
+    background-color: #131313;
+    color: white;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    background-color: rgb(37, 37, 37);
-    background-image: linear-gradient(to right, #000329, #000000, #696969);
-
+    background-color: #252525;
+    padding: 10px;
+    border-radius: 10px;
 }
 
-h1 {
-    font-size: 24px;
-    color: rgb(255, 255, 255);
-    font-weight: bold;
+.title {
+    font-size: 30px;
+    color: rgb(51, 51, 51);
 }
 
-input[type="text"] {
-    padding: 8px;
+.search-bar input {
+    padding: 5px;
     border-radius: 5px;
+    border: none;
+    background-color: #a7a7a7;
 }
 
 nav {
     display: flex;
     justify-content: center;
-    margin: 20px 0;
+    background-color: #383838;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px 0;
 }
 
-button {
-    padding: 10px 20px;
-    margin: 0 5px;
+nav button {
+    background-color: #505050;
+    color: rgb(0, 0, 0);
     border: none;
-    border-radius: 5px;
-    background-color: rgb(22, 180, 185);
-    background: linear-gradient(to right, #818181, #c0c0c0);
+    padding: 10px 15px;
+    margin: 0 5px;
+    border-radius: 30px;
     cursor: pointer;
 }
 
-button:hover {
-    background-color: rgb(255, 255, 255);
+nav button:hover {
+    background-color: #666666;
 }
 
-/* Specific to Main Content Area */
 main {
     display: flex;
-    justify-content: space-between;
-    padding: 0 10px;
-}
-
-.tier-column {
-    flex: 1;
-    margin: 0 5px;
-    background-color: rgb(0, 0, 0);
-    background: linear-gradient(to right, #272727, #929292);
-    border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-}
-
-.tier-column h2 {
-    text-align: center;
-    color: rgb(255, 255, 255);
-}
-
-.list {
-    background-color: #114385;
-    background: linear-gradient(to top, #1f1f1f, rgb(128, 128, 128), #181818);
-    color: white; /* Ensuring text is readable against a dark background */
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    overflow: hidden;
-    margin-top: 5px;
-    border-radius: 10px;
-    padding: 10px;
-    flex: 1;
-    min-height: 500px; /* Minimum height for visual consistency */
-}
-
-
-.item {
-    padding: 8px;
-    margin: 5px 0;
-    background-color: rgb(0, 0, 0);
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    position: relative;
-}
-
-.item span {
-    margin: 0 10px;
-}
-
-.item:hover .tooltip {
-    visibility: visible;
-}
-
-.tooltip {
-    visibility: hidden;
-    background-color: black;
-    color: white;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    position:absolute;
-    z-index: 1;
-    top: 100%;
-    left: 50%;
-    margin-left: -60px;
-    width: 120px;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.4);
-}
-
-.modal-content {
-    background-color: #888;
-    margin: 15% auto;
+    justify-content: space-around;
     padding: 20px;
-    border: 1px solid #444;
-    width: 50%;
 }
 
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
+.column {
+    background-color: #181818;
+    padding: 5px;
+    width: 18%;
+    border-radius: 10px;
 }
 
-.close:hover, .close:focus {
-    color: rgb(0, 50, 73);
-    text-decoration: none;
+.column-title {
+    background-color: #414141;
+    color: rgb(255, 208, 0);
+    padding: 20px;
+    text-align: center;
+    font-size: 23px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+
+.players .player {
+    padding: 5px;
+    margin: 5px 0;
     cursor: pointer;
+    position: relative;
+    border: none; /* Ensure no border */
+    outline: none; /* Ensure no outline */
+    box-shadow: none; /* Ensure no box shadow */
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
 }
 
-.high-rank {
-    background-color: #2331c9;
-    background-image: linear-gradient(to right, #0003cc, black);
-
+.players .player.high {
+    background-color: #003891;
 }
 
-.low-rank {
-    background-color: #3498db;
-    background-image: linear-gradient(to right, #2c8fc9, black);
+.players .player.low {
+    background-color: #0060fa;
 }
 
-html {
-    scroll-behavior: smooth;
+.players .player:hover {
+    padding-left: 20px;
 }
 
-.item .name::before {
+/* Adjust appearance for region name */
+.players .player::before {
+    content: attr(data-region); /* Show region name */
+    display: block;
+    position: absolute;
+    width: auto;
+    height: 100%;
+    left: -25px; /* Move region box to left of player name */
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: inherit; /* Use the same background color as the player */
+    padding: 2px 5px;
+    border-radius: 3px;
+    color: white;
+    display: none; /* Hide by default */
+}
+
+/* Adjust appearance of region name when hovered */
+.players .player:hover::before {
+    display: block;
+}
+
+/* Ensure the region color box appears before hovering */
+.players .player::after {
     content: '';
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    border-radius: 50%;
-    margin-right: 5px;
+    display: block;
+    width: 10px; /* Adjust the width of the box */
+    height: 100%;
+    left: calc(100% + 5px); /* Move region box to right of player name */
+    background-color: inherit; /* Use the same background color as the player */
+    display: block; /* Show by default */
+}
+
+/* Adjust appearance of region color box when hovered */
+.players .player:hover::after {
+    display: none; /* Hide the region color box when hovered */
+}
+
+/* Ensure no blue box appears when focused */
+.players .player:focus {
+    outline: none;
+    border: none; /* Ensure no border */
+    box-shadow: none; /* Ensure no box shadow */
+}
+
+/* Specific region styles */
+.players .as::before {
+    content: 'AS';
+    background-color: purple;
+}
+
+.players .eu::before {
+    content: 'EU';
+    background-color: green;
+}
+
+.players .na::before {
+    content: 'NA';
+    background-color: red;
+}
+
+p {
+    font-size: 24px;
+    color: red;
     vertical-align: middle;
-    background-color: transparent; /* Default to transparent */
-}
-
-.item.asia .name::before {
-    background-color: #800080; /* Purple for Asia */
-}
-
-.item.europe .name::before {
-    background-color: #008000; /* Green for Europe */
-}
-
-.item.north-america .name::before {
-    background-color: #FF0000; /* Red for North America */
-}
+  }
