@@ -1,0 +1,104 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #131313;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    background: linear-gradient(to bottom, black, rgb(41, 41, 41), black);
+}
+
+.title {
+    font-size: 40px;
+    margin-bottom: 20px;
+    top: 0;
+    position: absolute;
+    color: rgb(39, 39, 39);
+
+}
+
+nav {
+    justify-content: space-between;
+    width: 100%;
+    display: flex;
+}
+
+nav .button-container {
+    display: flex;
+    flex-direction: column;
+    width: 15%; /* Adjust as needed */
+}
+
+nav button {
+    display: block;
+    padding: 20px 20px;
+    background-color: rgb(65, 65, 65);
+    color: rgb(0, 0, 0);
+    transition-duration: 0.7s;
+    text-align: center;
+    width: 250px;
+    margin: 25px 0px;
+    font-size: 18px;
+    border: 0px;
+    cursor: default;
+    border-radius: 10px;
+}
+
+nav button:hover {
+    background-color: #111111;
+    color: rgb(255, 153, 0);
+    cursor: pointer;
+}
+
+nav button:active{
+    background-color: black;
+    color: yellow;
+    cursor: pointer;
+}
+
+
+.info-list {
+    text-align: center;
+    margin: 20px 0;
+    font-size: 18px;
+    width: 40%; /* Adjust as needed */
+}
+
+.info-list div {
+    display: flex;
+    align-items: center;
+    margin: 5px 0;
+    justify-content: center;
+    color: gray;
+}
+
+.color-box {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 3px;
+}
+
+.dark-blue {
+    background-color: darkblue;
+}
+
+.light-blue {
+    background-color: lightblue;
+}
+
+.red {
+    background-color: red;
+}
+
+.green {
+    background-color: green;
+}
+
+.purple {
+    background-color: purple;
+}

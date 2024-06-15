@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Players</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="title">Add Players</div>
+    </header>
+    <main>
+        <div class="form-container">
+            <h2>Add a Player</h2>
+            <input type="text" id="playerName" placeholder="Player Name">
+            <input type="text" id="playerRegion" placeholder="Region (e.g., as)">
+            <select id="playerRank">
+                <option value="high">High</option>
+                <option value="low">Low</option>
+            </select>
+            <select id="playerTier">
+                <option value="tier1">Tier 1</option>
+                <option value="tier2">Tier 2</option>
+                <option value="tier3">Tier 3</option>
+                <option value="tier4">Tier 4</option>
+                <option value="tier5">Tier 5</option>
+            </select>
+            <select id="playerPage">
+                <option value="nethpot">Nethpot</option>
+                <option value="sword">Sword</option>
+                <option value="diamondpot">DiamondPot</option>
+                <option value="axe">Axe</option>
+                <option value="crystal">Crystal</option>
+                <option value="smp">SMP</option>
+                <option value="uhc">UHC</option>
+            </select>
+            <button id="addPlayerBtn">Add Player</button>
+        </div>
+
+        <div class="form-container">
+            <h2>Remove a Player</h2>
+            <input type="text" id="removePlayerName" placeholder="Player Name to Remove">
+            <button id="removePlayerBtn">Remove Player</button>
+            <div id="removeMessage"></div>
+        </div>
+    </main>
+    <script src="add_player.js"></script>
+</body>
+</html>
