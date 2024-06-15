@@ -9,18 +9,26 @@ document.addEventListener('DOMContentLoaded', function() {
         const rank = document.getElementById('playerRank').value;
         const tier = document.getElementById('playerTier').value;
         const page = document.getElementById('playerPage').value;
-
+    
         if (!name || !region || !rank || !tier || !page) {
             alert('Please fill out all fields.');
             return;
         }
-
+    
         const players = JSON.parse(localStorage.getItem('players')) || [];
         players.push({ name, region, rank, tier, page });
         localStorage.setItem('players', JSON.stringify(players));
-
+    
         alert('Player added successfully!');
+    
+        // Clear input fields
+        document.getElementById('playerName').value = '';
+        document.getElementById('playerRegion').value = '';
+        document.getElementById('playerRank').value = '';
+        document.getElementById('playerTier').value = '';
+        document.getElementById('playerPage').value = '';
     });
+    
 
     removePlayerBtn.addEventListener('click', function() {
         const nameToRemove = document.getElementById('removePlayerName').value.toLowerCase();
