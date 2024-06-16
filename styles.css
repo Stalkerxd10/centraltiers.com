@@ -2,7 +2,7 @@ body {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #131313;
+    background-color: #181818;
     color: white;
 }
 
@@ -10,7 +10,7 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #252525;
+    background-color: #131313;
     padding: 10px;
     border-radius: 10px;
 }
@@ -42,7 +42,7 @@ nav button {
     border: none;
     padding: 10px 15px;
     margin: 0 5px;
-    border-radius: 0px 0px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
     cursor: pointer;
 }
 

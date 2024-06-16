@@ -9,7 +9,7 @@ body {
     align-items: center;
     height: 100vh;
     flex-direction: column;
-    background: linear-gradient(to bottom, black, rgb(41, 41, 41), black);
+    background: linear-gradient(to bottom, rgb(34, 34, 34), rgb(14, 14, 14), black);
 }
 
 .title {
@@ -36,8 +36,8 @@ nav .button-container {
 nav button {
     display: block;
     padding: 20px 20px;
-    background-color: rgb(65, 65, 65);
-    color: rgb(0, 0, 0);
+    background-color: rgb(22, 22, 22);
+    color: rgb(48, 48, 48);
     transition-duration: 0.7s;
     text-align: center;
     width: 250px;
