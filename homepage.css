@@ -17,7 +17,7 @@ body {
     margin-bottom: 20px;
     top: 0;
     position: absolute;
-    color: goldenrod;
+    color: rgb(228, 213, 0);
 
 }
 
@@ -48,6 +48,25 @@ nav button {
     border-radius: 10px;
 }
 
+#nothing {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    width: 30px;     /* Set width */
+    height: 30px;    /* Set height */
+    font-size: 14px; /* Adjust font size */
+    background-color: #000000;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 3px; /* Optional: Slightly rounded corners */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0; /* Remove padding */
+}
+
 nav button:hover {
     background-color: #111111;
     color: rgb(255, 153, 0);
@@ -58,11 +77,6 @@ nav button:active{
     background-color: black;
     color: yellow;
     cursor: pointer;
-}
-
-#nothing {
-    color:black;
-    background: black;
 }
 
 
@@ -106,4 +120,8 @@ nav button:active{
 
 .purple {
     background-color: purple;
+}
+
+.select button {
+    user-select: none;
 }

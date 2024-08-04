@@ -22,11 +22,8 @@ document.addEventListener("DOMContentLoaded", function() {
     displayPlayers();
 
     const searchInput = document.getElementById('searchInput');
-    const hiddenButton = document.getElementById('hiddenButton');
-
     searchInput.addEventListener('input', function() {
         const query = this.value.toLowerCase();
-
         document.querySelectorAll('.player').forEach(player => {
             if (player.textContent.toLowerCase().includes(query)) {
                 player.style.display = 'block';
@@ -34,12 +31,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 player.style.display = 'none';
             }
         });
-
-        // Show the hidden button if the search input is not empty
-        if (this.value.trim() !== '') {
-            hiddenButton.style.display = 'block';
-        } else {
-            hiddenButton.style.display = 'none';
-        }
     });
 });
+
