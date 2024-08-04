@@ -1,28 +1,42 @@
-const searchInput = document.getElementById('searchInput');
-const players = document.querySelectorAll('.player');
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
 
-searchInput.addEventListener('input', function(event) {
-    const searchText = event.target.value.toLowerCase();
+// Your web app's Firebase configuration
+const firebaseConfig = {
+    apiKey: "AIzaSyDLHwoNfGAYid05jSq-ZqNoq2YofnTmeF8",
+    authDomain: "tierlistweb.firebaseapp.com",
+    projectId: "663745054184",
+    storageBucket: "YOUR_PROJECT_ID.appspot.com",
+    messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+    appId: "YOUR_APP_ID"
+};
 
-    players.forEach(player => {
-        const playerName = player.textContent.toLowerCase();
-        if (playerName.includes(searchText)) {
-            player.style.display = 'block';
-        } else {
-            player.style.display = 'none';
-        }
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
+
+const allowedEmails = ["alloweduser1@gmail.com", "alloweduser2@gmail.com"];
+
+document.getElementById('login-button').addEventListener('click', () => {
+    signInWithPopup(auth, provider).catch(error => {
+        console.error("Error during sign-in:", error);
     });
 });
 
-players.forEach(player => {
-    player.addEventListener('mouseover', function() {
-        player.style.position = 'relative'; // Ensure positioning context
-        player.style.left = '5px'; // Move the player name to the right
-        player.setAttribute('title', player.classList[1]); // Show region name on hover
-    });
+onAuthStateChanged(auth, user => {
+    if (user) {
+        if (allowedEmails.includes(user.email)) {
+            document.getElementById('login-container').style.display = 'none';
+            document.getElementById('button-container').style.display = 'block';
+        } else {
+            alert('You do not have access to this button.');
+            auth.signOut();
+        }
+    }
+});
 
-    player.addEventListener('mouseout', function() {
-        player.style.left = 'auto'; // Reset the position when mouse leaves
-        player.removeAttribute('title');
-    });
+document.getElementById('private-button').addEventListener('click', () => {
+    window.location.href = "add_player.html"; // Replace with the URL of your private page
 });

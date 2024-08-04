@@ -1,102 +1,25 @@
 document.addEventListener("DOMContentLoaded", function() {
-    const players = [
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        { name: "", region: "", rank: "", tier: "" },
-        
-    ];
+    const currentPage = 'axe'; // Change this value based on the page
+    const players = JSON.parse(localStorage.getItem('players')) || [];
 
-    players.forEach(player => {
-        const tierList = document.querySelector(`#${player.tier} .players`);
-        if (tierList) {
-            const div = document.createElement('div');
-            div.className = `player ${player.rank} ${player.region}`;
-            div.innerHTML = player.name;
-            tierList.appendChild(div);
-        }
-    });
+    function displayPlayers() {
+        const tierContainers = document.querySelectorAll('.players');
+        tierContainers.forEach(container => container.innerHTML = ''); // Clear all player lists
+
+        players.forEach(player => {
+            if (player.page === currentPage) {
+                const tierList = document.querySelector(`#${player.tier} .players`);
+                if (tierList) {
+                    const div = document.createElement('div');
+                    div.className = `player ${player.rank} ${player.region}`;
+                    div.innerHTML = player.name;
+                    tierList.appendChild(div);
+                }
+            }
+        });
+    }
+
+    displayPlayers();
 
     const searchInput = document.getElementById('searchInput');
     searchInput.addEventListener('input', function() {
